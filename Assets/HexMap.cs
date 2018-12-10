@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class HexMap : MonoBehaviour
 {
-    public int mapSize;
+    public int numRows = 20;
+    public int numCols = 40;
     public GameObject hexPrefab;
     public Material[] hexMaterials;
     // Start is called before the first frame update
@@ -15,9 +16,9 @@ public class HexMap : MonoBehaviour
 
     public void GenerateMap()
     {
-        for(int col = 0; col < mapSize; col++)
+        for(int col = 0; col < numCols; col++)
         {
-            for (int row = 0; row < mapSize; row++)
+            for (int row = 0; row < numRows; row++)
             {
                 Hex hex = new Hex(col, row);
                 GameObject go =  Instantiate(hexPrefab, hex.Position(), Quaternion.identity, transform) as GameObject;

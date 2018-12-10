@@ -40,8 +40,10 @@ public class Hex
         float horiz = width;
         float vert = height * 0.75f;
 
+        float horizOffset = R % 2 == 0 ? 0 : 0.5f;
+        horizOffset = R*0.5f;
         return new Vector3(
-            horiz * (Q+R/2f), //each even row, we need to have another half movement horizontally
+            horiz * (Q+ horizOffset), //each even row, we need to have another half movement horizontally
             0,
             vert * R);
     }
