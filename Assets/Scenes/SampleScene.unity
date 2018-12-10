@@ -294,6 +294,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapSize: 10
   hexPrefab: {fileID: 4564155928131518695, guid: 6e32ef7ae63f9eb44828808c997691f5, type: 3}
+  hexMaterials:
+  - {fileID: 2100000, guid: a7dde2299fa8c364db18f39ff4b1ca6c, type: 2}
+  - {fileID: 2100000, guid: b21bd1848beaaf544aff45b88259bc36, type: 2}
+  - {fileID: 2100000, guid: 87069181fd7aaf243b7b075e4607e8b7, type: 2}
+  - {fileID: 2100000, guid: 3c19e2bf128a5004983eda6d3ad93899, type: 2}
 --- !u!4 &2044944863
 Transform:
   m_ObjectHideFlags: 0

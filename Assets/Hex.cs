@@ -14,7 +14,7 @@ public class Hex
     public int R; // row
     public int S; //S = -(Q+R)
 
-    static readonly float WIDTH_MULTIPLIER = Mathf.Sqrt(2) / 2;
+    static readonly float WIDTH_MULTIPLIER = Mathf.Sqrt(3) / 2;
 
     public Hex (int q,int r)
     {

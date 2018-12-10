@@ -6,6 +6,7 @@ public class HexMap : MonoBehaviour
 {
     public int mapSize;
     public GameObject hexPrefab;
+    public Material[] hexMaterials;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,9 +20,12 @@ public class HexMap : MonoBehaviour
             for (int row = 0; row < mapSize; row++)
             {
                 Hex hex = new Hex(col, row);
-                Instantiate(hexPrefab, hex.Position(), Quaternion.identity, transform);
+                GameObject go =  Instantiate(hexPrefab, hex.Position(), Quaternion.identity, transform) as GameObject;
+                MeshRenderer mr = go.GetComponentInChildren<MeshRenderer>();
+                mr.material = hexMaterials[Random.Range(0, hexMaterials.Length)];
             }
         }
+        StaticBatchingUtility.Combine(this.gameObject);
     }
 
     // Update is called once per frame
