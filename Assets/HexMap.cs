@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class HexMap : MonoBehaviour
 {
-    public int numRows = 20;
-    public int numCols = 40;
+    public int numRows = 5;
+    public int numCols = 10;
+    public float hexTileSize = 2;
     public GameObject hexPrefab;
     public Material[] hexMaterials;
     // Start is called before the first frame update
@@ -20,13 +21,14 @@ public class HexMap : MonoBehaviour
         {
             for (int row = 0; row < numRows; row++)
             {
-                Hex hex = new Hex(col, row);
-                GameObject go =  Instantiate(hexPrefab, hex.Position(), Quaternion.identity, transform) as GameObject;
+                Hex hex = new Hex(col, row, hexTileSize);
+                GameObject go =  Instantiate(hexPrefab, transform.position+hex.Position(), Quaternion.identity, transform) as GameObject;
                 MeshRenderer mr = go.GetComponentInChildren<MeshRenderer>();
+                go.transform.localScale = new Vector3(hexTileSize, hexTileSize, hexTileSize);
                 mr.material = hexMaterials[Random.Range(0, hexMaterials.Length)];
             }
         }
-        StaticBatchingUtility.Combine(this.gameObject);
+        //StaticBatchingUtility.Combine(this.gameObject);
     }
 
     // Update is called once per frame

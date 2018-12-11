@@ -13,14 +13,16 @@ public class Hex
     public int Q; // col
     public int R; // row
     public int S; //S = -(Q+R)
+    public float radius;
 
     static readonly float WIDTH_MULTIPLIER = Mathf.Sqrt(3) / 2;
 
-    public Hex (int q,int r)
+    public Hex (int q,int r,float size)
     {
         Q = q;
         R = r;
         S = -(q + r);
+        radius = size;
     }
     /// <summary>
     /// return the world space position of the hex
@@ -33,7 +35,7 @@ public class Hex
     /// <returns></returns>
     public Vector3 Position()
     {
-        float radius = 1f;//distance from center to pointy end of hex
+        //float radius = 1f;//distance from center to pointy end of hex
         float height = radius * 2;
         float width = WIDTH_MULTIPLIER * height;
 
