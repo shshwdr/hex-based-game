@@ -22,8 +22,12 @@ public class HexMap : MonoBehaviour
             for (int row = 0; row < numRows; row++)
             {
                 Hex hex = new Hex(col, row, hexTileSize);
+                string hexName = col + "," + row;
+                
                 GameObject go =  Instantiate(hexPrefab, transform.position+hex.Position(), Quaternion.identity, transform) as GameObject;
                 MeshRenderer mr = go.GetComponentInChildren<MeshRenderer>();
+                go.name = "hex " + hexName;
+                go.GetComponentInChildren<TextMesh>().text =  hexName;
                 go.transform.localScale = new Vector3(hexTileSize, hexTileSize, hexTileSize);
                 mr.material = hexMaterials[Random.Range(0, hexMaterials.Length)];
             }
